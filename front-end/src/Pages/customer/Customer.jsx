@@ -1,10 +1,14 @@
 import React from "react";
-import Header from "../customer/header/Header"
+import Header from '../customer/header/Header';
+import Section from '../customer/section/Section'
 
-const Customer = () => {
+function Customer() {
+  return (
     <div>
-        <Header />
+      <Header />
+      <Section />
     </div>
+  )
 }
 
-export default Customer;
+export default Customer
