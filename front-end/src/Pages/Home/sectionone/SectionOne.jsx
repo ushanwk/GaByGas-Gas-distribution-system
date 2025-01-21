@@ -81,7 +81,10 @@ const SectionOne = () => {
             }}
           >
 
-          <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">Login to the System</h1>
+          <h1 
+            className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">
+            Login to the System
+          </h1>
 
           </div>
 

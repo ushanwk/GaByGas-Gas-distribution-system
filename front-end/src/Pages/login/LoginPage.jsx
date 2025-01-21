@@ -3,7 +3,10 @@ import loginImage from "../../assets/pages/login-page/right-side-img.png"
 import  { useState } from "react";
 import InputField from "../../common/components/input-field/InputField";
 import ButtonComponent from "../../common/components/button/Button";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
+=======
+>>>>>>> 1ffe993 (Added  login component)
 
 
 function LoginPage() {
@@ -26,12 +29,15 @@ function LoginPage() {
     console.log("Form Data Submitted:", formData);
   };
 
+<<<<<<< HEAD
   const navigate = useNavigate(); 
 
   const navigateRegister = () => {
     navigate("/register"); 
   };
 
+=======
+>>>>>>> 1ffe993 (Added  login component)
   return (
     <div className="flex flex-row h-screen">
         <div className="flex flex-col gap-y-40 basis-1/2 p-20" style={{ backgroundColor: "#FFFBEE" }}>
@@ -43,7 +49,11 @@ function LoginPage() {
         </div>
 
 
+<<<<<<< HEAD
         <div className="flex flex-col gap-3" style={{width:"550px"}}>
+=======
+        <div className="flex flex-col gap-3">
+>>>>>>> 1ffe993 (Added  login component)
           <div className="flex flex-row gap-2 items-center">
            <div className="bg-blue-800 w-10 h-0.5"></div>
             <p className="text-blue-800 font-semibold">Login Form</p>
@@ -65,6 +75,7 @@ function LoginPage() {
             required
             width="550px"
           />
+<<<<<<< HEAD
 
           <div className="flex flex-col justify-end items-end">
             <InputField
@@ -82,6 +93,20 @@ function LoginPage() {
         </div>
 
       
+=======
+      
+        <InputField
+          label="Password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="Enter your password"
+          type="password"
+          required
+           width="550px"
+          />
+        </div>
+>>>>>>> 1ffe993 (Added  login component)
 
         <div>
         <ButtonComponent
@@ -94,6 +119,7 @@ function LoginPage() {
         variant="contained"
           />
         </div>
+<<<<<<< HEAD
 
         <div className="flex gap-1">
       <p className="opacity-40">Have not an account?</p>
@@ -106,6 +132,11 @@ function LoginPage() {
       <p className="opacity-40">Now.</p>
     </div>
   
+=======
+        
+
+
+>>>>>>> 1ffe993 (Added  login component)
         </div>
     
 

@@ -9,7 +9,11 @@ function InputField({
   type = "text",
   required = false,
   placeholder,
+<<<<<<< HEAD
   width = "100%", 
+=======
+  width = "100%", // Default width is 100% (full width)
+>>>>>>> 1ffe993 (Added  login component)
 }) {
   return (
     <TextField
