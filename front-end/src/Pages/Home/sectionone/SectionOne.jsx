@@ -30,7 +30,7 @@ const SectionOne = () => {
           Reliable gas delivery, right on time because your comfort is our priority
         </p>
 
-        <p className="text-1xl font-medium mb-6 shadow-md text-center mt-5">
+        <p className="text-1xl font-medium mb-6 shadow-md text-center mt-5 text-[#FFBF00]">
           Gas by Gas is a trusted LP gas provider, committed to delivering
           high-quality gas efficiently and safely,
           <br />
