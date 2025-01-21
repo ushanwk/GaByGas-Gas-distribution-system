@@ -34,7 +34,7 @@ const Header = () => {
         />
 
         <button className="bg-[#FFBF00] px-8 py-2 rounded-md hover:bg-yellow-400 transition-colors">
-          Login
+          Join Now
         </button>
       </div>
     </header>
