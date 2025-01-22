@@ -1,13 +1,14 @@
-import logo from "../../assets/logo/bar-logo.png"
-import loginImage from "../../assets/pages/register-page/MaskGroup.png"
+import logo from "../../../assets/logo/bar-logo.png"
+import loginImage from "../../../assets/pages/register-Page/Customer/MaskGroup.png"
 import  { useState } from "react";
-import ButtonComponent from "../../common/components/button/Button";
-import CusIcon from "../../assets/pages/register-page/cusIcon.jpg";
-import BusIcon from "../../assets/pages/register-page/BusIcon.png";
-import ImgButtonComponent from "./Components/ImgButton";
+import ButtonComponent from "../../../common/components/button/Button";
+import CusIcon from "../../../assets/pages/register-page/cusIcon.jpg";
+import BusIcon from "../../../assets/pages/register-page/BusIcon.png";
+import ImgButtonComponent from "../Components/ImgButton";
+import InputField from "../../../common/components/input-field/InputField";
 
 
-function RegisterPage() {
+function CustomerRegister() {
 
   const [formData, setFormData] = useState({
     email: "",
@@ -41,7 +42,7 @@ function RegisterPage() {
         <div className="flex flex-col gap-3">
           <div className="flex flex-row gap-2 items-center">
            <div className="bg-blue-800 w-10 h-0.5"></div>
-            <p className="text-blue-800 font-semibold">Register Form</p>
+            <p className="text-blue-800 font-semibold">Customer Register Form</p>
           </div> 
 
           <div>
@@ -51,17 +52,18 @@ function RegisterPage() {
 
         
 
-        <div className="pt-10 flex gap-14">
+        <div className="pt-10">
           <div>
-            <ImgButtonComponent
-            label="Customer"
-            src={CusIcon}
-            alt="Customer Icon"
-            onClick={onClick}
-            customColor="white"
-            customWidth="200px"
-            customHeight="200px"
-            />
+            <InputField
+            label="Email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
+            type="email"
+            required
+            width="550px"
+          />
           </div>
 
           <div>
@@ -97,4 +99,4 @@ function RegisterPage() {
   )
 }
 
-export default RegisterPage
+export default CustomerRegister
