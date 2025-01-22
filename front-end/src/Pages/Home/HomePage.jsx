@@ -1,9 +1,11 @@
-import React from "react";
+import Header from "./header/Header/";
+import SectionOne from "./sectionone/SectionOne"
 
 function HomePage() {
   return (
     <div>
-      <h1>sjdhgasjhfdgajhd</h1>
+      <Header />
+      <SectionOne />
     </div>
   )
 }

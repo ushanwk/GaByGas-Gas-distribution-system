@@ -9,7 +9,7 @@ function InputField({
   type = "text",
   required = false,
   placeholder,
-  width = "100%", 
+  width = "100%", // Default width is 100% (full width)
 }) {
   return (
     <TextField
@@ -53,3 +53,5 @@ InputField.defaultProps = {
 };
 
 export default InputField;
+import TextField from "@mui/material/TextField";
+import PropTypes from "prop-types";
