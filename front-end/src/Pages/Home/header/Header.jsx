@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
-=======
-import  { useState, useEffect } from 'react';
->>>>>>> 1ffe993 (Added  login component)
 import barLogo from '../../../assets/logo/bar-logo.png';
 
 

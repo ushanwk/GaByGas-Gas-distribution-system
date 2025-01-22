@@ -1,4 +1,4 @@
-import React from "react";
+
 import Header from '../customer/header/Header';
 import Section from '../customer/section/Section'
 

@@ -1,6 +1,6 @@
 import bgImage from "../../../assets/pages/customer-page/customer-bg-img.png";
 import SelectBox from "../select-box/SelectBox.jsx";
-import React from "react";
+
 
 const SectionOne = () => {
   return (
