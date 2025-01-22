@@ -1,4 +1,3 @@
-import React from "react";
 import bgImage from "../../../assets/pages/home/section-one-bg.png";
 import imgOne from "../../../assets/pages/home/section-one-first.png";
 import imgTwo from "../../../assets/pages/home/section-one-second.png";
