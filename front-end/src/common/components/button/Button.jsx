@@ -13,6 +13,7 @@ function ButtonComponent({
   endIcon,
   disabled = false,
 <<<<<<< HEAD
+<<<<<<< HEAD
   customColor, 
   customWidth, 
   customHeight, 
@@ -21,6 +22,11 @@ function ButtonComponent({
   customWidth, // Custom width
   customHeight, // Custom height
 >>>>>>> 1ffe993 (Added  login component)
+=======
+  customColor, 
+  customWidth, 
+  customHeight, 
+>>>>>>> 9cd71ea (Login Form Added)
 }) {
   return to ? (
     <Button
@@ -34,6 +40,7 @@ function ButtonComponent({
       disabled={disabled}
       sx={{
 <<<<<<< HEAD
+<<<<<<< HEAD
         backgroundColor: customColor || undefined,
         width: customWidth || "auto", 
         height: customHeight || "auto",
@@ -44,6 +51,12 @@ function ButtonComponent({
         width: customWidth || "auto", // Apply custom width if provided
         height: customHeight || "auto", // Apply custom height if provided
 >>>>>>> 1ffe993 (Added  login component)
+=======
+        backgroundColor: customColor || undefined,
+        width: customWidth || "auto", 
+        height: customHeight || "auto",
+        borderRadius:"10px"
+>>>>>>> 9cd71ea (Login Form Added)
       }}
     >
       {label}
@@ -59,6 +72,7 @@ function ButtonComponent({
       disabled={disabled}
       sx={{
 <<<<<<< HEAD
+<<<<<<< HEAD
         backgroundColor: customColor || undefined,
         width: customWidth || "auto", 
         height: customHeight || "auto", 
@@ -68,6 +82,11 @@ function ButtonComponent({
         width: customWidth || "auto", // Apply custom width if provided
         height: customHeight || "auto", // Apply custom height if provided
 >>>>>>> 1ffe993 (Added  login component)
+=======
+        backgroundColor: customColor || undefined,
+        width: customWidth || "auto", 
+        height: customHeight || "auto", 
+>>>>>>> 9cd71ea (Login Form Added)
       }}
     >
       {label}
@@ -95,6 +114,7 @@ ButtonComponent.propTypes = {
   endIcon: PropTypes.node,
   disabled: PropTypes.bool,
 <<<<<<< HEAD
+<<<<<<< HEAD
   customColor: PropTypes.string, 
   customWidth: PropTypes.string, 
   customHeight: PropTypes.string, 
@@ -103,6 +123,11 @@ ButtonComponent.propTypes = {
   customWidth: PropTypes.string, // Custom width prop
   customHeight: PropTypes.string, // Custom height prop
 >>>>>>> 1ffe993 (Added  login component)
+=======
+  customColor: PropTypes.string, 
+  customWidth: PropTypes.string, 
+  customHeight: PropTypes.string, 
+>>>>>>> 9cd71ea (Login Form Added)
 };
 
 ButtonComponent.defaultProps = {

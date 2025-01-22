@@ -4,9 +4,13 @@ import  { useState } from "react";
 import InputField from "../../common/components/input-field/InputField";
 import ButtonComponent from "../../common/components/button/Button";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 =======
 >>>>>>> 1ffe993 (Added  login component)
+=======
+import { useNavigate } from "react-router-dom";
+>>>>>>> 9cd71ea (Login Form Added)
 
 
 function LoginPage() {
@@ -30,14 +34,20 @@ function LoginPage() {
   };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9cd71ea (Login Form Added)
   const navigate = useNavigate(); 
 
   const navigateRegister = () => {
     navigate("/register"); 
   };
 
+<<<<<<< HEAD
 =======
 >>>>>>> 1ffe993 (Added  login component)
+=======
+>>>>>>> 9cd71ea (Login Form Added)
   return (
     <div className="flex flex-row h-screen">
         <div className="flex flex-col gap-y-40 basis-1/2 p-20" style={{ backgroundColor: "#FFFBEE" }}>
@@ -50,10 +60,14 @@ function LoginPage() {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div className="flex flex-col gap-3" style={{width:"550px"}}>
 =======
         <div className="flex flex-col gap-3">
 >>>>>>> 1ffe993 (Added  login component)
+=======
+        <div className="flex flex-col gap-3" style={{width:"550px"}}>
+>>>>>>> 9cd71ea (Login Form Added)
           <div className="flex flex-row gap-2 items-center">
            <div className="bg-blue-800 w-10 h-0.5"></div>
             <p className="text-blue-800 font-semibold">Login Form</p>
@@ -76,6 +90,9 @@ function LoginPage() {
             width="550px"
           />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9cd71ea (Login Form Added)
 
           <div className="flex flex-col justify-end items-end">
             <InputField
@@ -90,6 +107,7 @@ function LoginPage() {
             />
             <p className="opacity-40">Forgot password?</p>
         </div>    
+<<<<<<< HEAD
         </div>
 
       
@@ -105,8 +123,12 @@ function LoginPage() {
           required
            width="550px"
           />
+=======
+>>>>>>> 9cd71ea (Login Form Added)
         </div>
 >>>>>>> 1ffe993 (Added  login component)
+
+      
 
         <div>
         <ButtonComponent
@@ -119,6 +141,7 @@ function LoginPage() {
         variant="contained"
           />
         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         <div className="flex gap-1">
@@ -137,6 +160,20 @@ function LoginPage() {
 
 
 >>>>>>> 1ffe993 (Added  login component)
+=======
+
+        <div className="flex gap-1">
+      <p className="opacity-40">Have not an account?</p>
+      <p
+        style={{ color: "#004AB0", cursor: "pointer" }}
+        onClick={navigateRegister()} 
+      >
+        Register
+      </p>
+      <p className="opacity-40">Now.</p>
+    </div>
+  
+>>>>>>> 9cd71ea (Login Form Added)
         </div>
     
 
