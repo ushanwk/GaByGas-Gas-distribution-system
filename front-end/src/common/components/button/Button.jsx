@@ -12,9 +12,9 @@ function ButtonComponent({
   startIcon,
   endIcon,
   disabled = false,
-  customColor, // Custom color
-  customWidth, // Custom width
-  customHeight, // Custom height
+  customColor, 
+  customWidth, 
+  customHeight, 
 }) {
   return to ? (
     <Button
@@ -27,10 +27,10 @@ function ButtonComponent({
       endIcon={endIcon}
       disabled={disabled}
       sx={{
-        margin: "10px",
         backgroundColor: customColor || undefined,
-        width: customWidth || "auto", // Apply custom width if provided
-        height: customHeight || "auto", // Apply custom height if provided
+        width: customWidth || "auto", 
+        height: customHeight || "auto",
+        borderRadius:"10px"
       }}
     >
       {label}
@@ -45,10 +45,9 @@ function ButtonComponent({
       endIcon={endIcon}
       disabled={disabled}
       sx={{
-        margin: "10px",
         backgroundColor: customColor || undefined,
-        width: customWidth || "auto", // Apply custom width if provided
-        height: customHeight || "auto", // Apply custom height if provided
+        width: customWidth || "auto", 
+        height: customHeight || "auto", 
       }}
     >
       {label}
@@ -75,9 +74,9 @@ ButtonComponent.propTypes = {
   startIcon: PropTypes.node,
   endIcon: PropTypes.node,
   disabled: PropTypes.bool,
-  customColor: PropTypes.string, // Custom color prop
-  customWidth: PropTypes.string, // Custom width prop
-  customHeight: PropTypes.string, // Custom height prop
+  customColor: PropTypes.string, 
+  customWidth: PropTypes.string, 
+  customHeight: PropTypes.string, 
 };
 
 ButtonComponent.defaultProps = {

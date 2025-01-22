@@ -9,7 +9,7 @@ function InputField({
   type = "text",
   required = false,
   placeholder,
-  width = "100%", // Default width is 100% (full width)
+  width = "100%", 
 }) {
   return (
     <TextField
