@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./Pages/home/HomePage"
-=======
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import HomePage from "./pages/home/HomePage/"
 import LoginPage from "./pages/login/LoginPage/"
@@ -9,7 +5,6 @@ import RegisterPage from "./pages/register/RegisterPage"
 import Customer from "./Pages/customer/Customer";
 import HeadOfficePage from "./Pages/head-office/HeadOfficePage";
 import OutletPage from "./Pages/outlet/OutletPage";
->>>>>>> fa041b8e3583ddd46a48ab31916e58685a064646
 
 function App() {
   return (

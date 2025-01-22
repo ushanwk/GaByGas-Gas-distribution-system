@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 import React, { useState, useEffect } from 'react';
-=======
-import { useState, useEffect } from 'react';
->>>>>>> fa041b8e3583ddd46a48ab31916e58685a064646
+
 import barLogo from '../../../assets/logo/bar-logo.png';
 
 
