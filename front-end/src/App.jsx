@@ -5,6 +5,8 @@ import RegisterPage from "./pages/register/RegisterPage"
 import Customer from "./Pages/customer/Customer";
 import HeadOfficePage from "./Pages/head-office/HeadOfficePage";
 import OutletPage from "./Pages/outlet/OutletPage";
+import Register from "./Pages/register/RegisterPage/";
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Route path="/customer" element={<Customer/>} />
         <Route path="/head" element={<HeadOfficePage/>} />
         <Route path="/outlet" element={<OutletPage/>} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   )
