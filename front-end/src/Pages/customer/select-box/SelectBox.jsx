@@ -1,4 +1,6 @@
-import { useState } from "react";
+
+import React, { useState } from "react";
+
 
 const SelectBox = () => {
     const [selectedOption, setSelectedOption] = useState("Select an option");

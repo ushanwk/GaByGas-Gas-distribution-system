@@ -1,5 +1,6 @@
-import Header from "./header/Header/";
-import SectionOne from "./sectionone/SectionOne"
+import Header from "../Home/header/Header";
+import SectionOne from '../Home/sectionone/SectionOne.jsx';
+
 
 function HomePage() {
   return (

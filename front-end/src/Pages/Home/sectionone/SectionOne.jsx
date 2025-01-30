@@ -2,18 +2,14 @@ import bgImage from "../../../assets/pages/home/section-one-bg.png";
 import imgOne from "../../../assets/pages/home/section-one-first.png";
 import imgTwo from "../../../assets/pages/home/section-one-second.png";
 import imgThree from "../../../assets/pages/home/section-one-third.png";
+
 import { useNavigate } from "react-router-dom";
 
 const SectionOne = () => {
-
   const navigate = useNavigate();
 
   const handleNavigateLogin = () => {
     navigate("/login");
-  };
-
-  const handleNavigateRegister = () => {
-    navigate("/register");
   };
 
 
@@ -50,8 +46,6 @@ const SectionOne = () => {
         </p>
 
         <div className="w-[700px] flex justify-between p-4 rounded-md shadow-lg">
-
-
           <div
             className="w-[210px] h-[210px] rounded-md relative overflow-hidden transition-transform duration-300 hover:scale-105 border border-white hover:border-yellow-500 group"
             style={{
@@ -60,15 +54,12 @@ const SectionOne = () => {
               backgroundPosition: "center",
               borderRadius: "8px", // Matches the `rounded-md` class
             }}
-            onClick={handleNavigateRegister}
+            onClick={handleNavigateLogin()}
           >
             <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">
               Register as a Customer
             </h1>
           </div>
-
-
-
 
           <div
             className="w-[210px] h-[210px] rounded-md relative overflow-hidden transition-transform duration-300 hover:scale-105 border border-white hover:border-yellow-500 group"
@@ -79,13 +70,12 @@ const SectionOne = () => {
               borderRadius: "8px", // Matches the `rounded-md` class
             }}
           >
-
-          <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">Register as a Business</h1>
-
+            <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">
+              Register as a Business
+            </h1>
           </div>
 
-
-          <div 
+          <div
             className="w-[210px] h-[210px] rounded-md relative overflow-hidden transition-transform duration-300 hover:scale-105 border border-white hover:border-yellow-500 group"
             style={{
               background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${imgThree})`,
@@ -95,15 +85,12 @@ const SectionOne = () => {
             }}
             onClick={handleNavigateLogin}
           >
-
-          <h1
-            className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">
-            Login to the System
-          </h1>
-
+            <h1
+              className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]"
+            >
+              Login to the System
+            </h1>
           </div>
-
-
         </div>
       </div>
     </section>
