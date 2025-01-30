@@ -1,7 +1,11 @@
 import barLogo from "../../assets/logo/bar-logo.png"
 import dashboardIcon from "../../assets/pages/outlet-page/dashboard-icon.png"
-import orderIcon from "../../assets/pages/outlet-page/order-icon.png"
+import TokenIcon from "../../assets/pages/outlet-page/order-icon.png"
+import ScheduleIcon from "../../assets/pages/outlet-page/truck 1.png"
+import OrderIcon from "../../assets/pages/outlet-page/purchase-order 1.png"
 import {useState} from "react";
+import {TokenTable} from "./TokenTable/TokenTable.jsx";
+import {ScheduleTable} from "./ScheduleTable/ScheduleTable.jsx";
 
 
 const OutletPage = () => {
@@ -24,7 +28,15 @@ const OutletPage = () => {
                         </li>
 
                         <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(1)}>
-                            <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Tokens
+                            <span className="mr-2"><img src={TokenIcon} className="w-5" /></span> Tokens
+                        </li>
+
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(2)}>
+                            <span className="mr-2"><img src={ScheduleIcon} className="w-5" /></span> Schedules
+                        </li>
+
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(3)}>
+                            <span className="mr-2"><img src={OrderIcon} className="w-5" /></span> Order
                         </li>
                     </ul>
                 </nav>
@@ -53,16 +65,60 @@ const OutletPage = () => {
                 </div>
 
                 {/* Content Area */}
-                <div className="flex-1 p-6 bg-yellow-50">
+                <div className="flex-1 p-6 pl-20 pt-8 bg-yellow-50">
                     {tab === 0 ? (
-                        <div>
-                            <h1>Dashboard</h1>
+                        <div className="p-5 flex flex-col items-center">
+                            <h1 className="font-bold text-2xl mb-10">Dashboard</h1>
+                            <div className="grid grid-cols-2 gap-10 place-items-center mt-20">
+
+                                <div className="h-56 w-96 hover:scale-110 bg-white border-2 border-yellow-200 rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-2">
+                                    <img src={TokenIcon} alt="Token Icon" className="h-16 w-16" />
+                                    <h2 className="text-2xl font-bold">20</h2>
+                                    <h1 className="text-lg text-gray-600">Total Tokens</h1>
+                                </div>
+
+                                <div className="h-56 w-96 hover:scale-110 bg-white border-2 border-yellow-200 rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-2">
+                                    <img src={TokenIcon} alt="Token Icon" className="h-16 w-16" />
+                                    <h2 className="text-2xl font-bold">20</h2>
+                                    <h1 className="text-lg text-gray-600">Total Tokens</h1>
+                                </div>
+
+                                <div className="col-span-2 flex justify-center">
+                                    <div className="h-56 w-96 hover:scale-110 bg-white border-2 border-yellow-200 rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-2">
+                                        <img src={TokenIcon} alt="Token Icon" className="h-16 w-16" />
+                                        <h2 className="text-2xl font-bold">20</h2>
+                                        <h1 className="text-lg text-gray-600">Total Tokens</h1>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     ) : null}
 
                     {tab === 1 ? (
-                        <div>
-                            <h1>Tokens</h1>
+                        <div className="p-5 flex flex-col items-center">
+                            <h1 className="font-bold text-2xl mb-10">Tokens</h1>
+
+                            <div className="w-full">
+                                <TokenTable/>
+                            </div>
+
+                        </div>
+                    ) : null}
+
+                    {tab === 2 ? (
+                        <div className="p-5 flex flex-col items-center">
+                            <h1 className="font-bold text-2xl mb-10">Schedule</h1>
+
+                            <div className="w-full">
+                                <ScheduleTable/>
+                            </div>
+                        </div>
+                    ) : null}
+
+                    {tab === 3 ? (
+                        <div className="p-5 flex flex-col items-center">
+                            <h1 className="font-bold text-2xl mb-10">Order</h1>
                         </div>
                     ) : null}
                 </div>
