@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
-import HomePage from "./pages/home/HomePage/"
-import LoginPage from "./pages/login/LoginPage/"
-import RegisterPage from "./pages/register/RegisterPage"
-import Customer from "./Pages/customer/Customer";
-import HeadOfficePage from "./Pages/head-office/HeadOfficePage";
-import OutletPage from "./Pages/outlet/OutletPage";
-import Register from "./Pages/register/RegisterPage/";
+import HomePage from "./pages/Home/HomePage.jsx"
+import LoginPage from "./pages/login/LoginPage.jsx"
+import RegisterPage from "./pages/register/RegisterPage.jsx"
+import Customer from "./Pages/customer/Customer.jsx";
+import HeadOfficePage from "./Pages/head-office/HeadOfficePage.jsx";
+import OutletPage from "./Pages/outlet/OutletPage.jsx";
+import Register from "./Pages/register/RegisterPage.jsx/";
 
 
 function App() {
