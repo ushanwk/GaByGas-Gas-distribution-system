@@ -1,9 +1,13 @@
 import barLogo from "../../assets/logo/bar-logo.png"
 import dashboardIcon from "../../assets/pages/outlet-page/dashboard-icon.png"
 import orderIcon from "../../assets/pages/outlet-page/order-icon.png"
+import {useState} from "react";
 
 
 const OutletPage = () => {
+
+    const [tab, setTab] = useState(0);
+
     return (
         <div className="flex h-screen bg-yellow-50">
             {/* Sidebar */}
@@ -15,11 +19,12 @@ const OutletPage = () => {
                 </div>
                 <nav className="mt-16 ml-8">
                     <ul>
-                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4">
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(0)}>
                             <span className="mr-2"><img src={dashboardIcon} className="w-5" /></span> Dashboard
                         </li>
-                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4">
-                            <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Orders
+
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(1)}>
+                            <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Tokens
                         </li>
                     </ul>
                 </nav>
@@ -49,9 +54,17 @@ const OutletPage = () => {
 
                 {/* Content Area */}
                 <div className="flex-1 p-6 bg-yellow-50">
+                    {tab === 0 ? (
+                        <div>
+                            <h1>Dashboard</h1>
+                        </div>
+                    ) : null}
 
-
-
+                    {tab === 1 ? (
+                        <div>
+                            <h1>Tokens</h1>
+                        </div>
+                    ) : null}
                 </div>
             </div>
         </div>
