@@ -1,11 +1,11 @@
 import logo from "../../../assets/logo/bar-logo.png"
-import loginImage from "../../../assets/pages/register-page/Customer/MaskGroup.png"
+import loginImage from "../../../assets/pages/register-page/Business/Maskgroup1.png"
 import  { useState } from "react";
 import ButtonComponent from "../../../common/components/button/Button";
 import InputField from "../../../common/components/input-field/InputField.jsx";
 
 
-function CustomerRegister() {
+function BusinessRegister() {
 
     const [formData, setFormData] = useState({
         name:"",
@@ -43,7 +43,7 @@ function CustomerRegister() {
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-row gap-2 items-center">
                         <div className="bg-blue-800 w-10 h-0.5"></div>
-                        <p className="text-blue-800 font-semibold">Customer Register Form</p>
+                        <p className="text-blue-800 font-semibold">Business Register Form</p>
                     </div>
 
                     <div>
@@ -56,7 +56,7 @@ function CustomerRegister() {
                     <div className="pt-5">
                         <div>
                             <InputField
-                                label="Customer Name"
+                                label="Business Name"
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
@@ -134,15 +134,15 @@ function CustomerRegister() {
                             </div>
 
                             <div className="">
-                            <ButtonComponent
-                                label="Register"
-                                onClick={onClick}
-                                customColor="#004AB0"
-                                customWidth="250px"
-                                customHeight="50px"
-                                size="large"
-                                variant="contained"
-                            />
+                                <ButtonComponent
+                                    label="Register"
+                                    onClick={onClick}
+                                    customColor="#004AB0"
+                                    customWidth="250px"
+                                    customHeight="50px"
+                                    size="large"
+                                    variant="contained"
+                                />
                             </div>
 
                         </div>
@@ -168,4 +168,4 @@ function CustomerRegister() {
     )
 }
 
-export default CustomerRegister
+export default BusinessRegister
