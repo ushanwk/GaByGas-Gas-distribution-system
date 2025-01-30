@@ -54,7 +54,7 @@ const SectionOne = () => {
               backgroundPosition: "center",
               borderRadius: "8px", // Matches the `rounded-md` class
             }}
-            onClick={handleNavigateRegister}
+            onClick={handleNavigateLogin()}
           >
             <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">
               Register as a Customer

@@ -1,6 +1,5 @@
-import React from "react";
 import Header from "../Home/header/Header";
-import SectionOne from '../Home/sectionone/SectionOne';
+import SectionOne from '../Home/sectionone/SectionOne.jsx';
 
 
 function HomePage() {
