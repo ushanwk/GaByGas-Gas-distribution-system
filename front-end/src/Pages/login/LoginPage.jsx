@@ -31,19 +31,19 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex flex-row h-screen">
+    <div className="flex flex-row h-screen w-dvw">
       {/* Left Panel */}
       <div
-        className="flex flex-col gap-y-40 basis-1/2 p-20"
+        className="flex flex-col gap-y-40 basis-2/3 p-20"
         style={{ backgroundColor: "#FFFBEE" }}
       >
         {/* Logo */}
         <div>
-          <img src={logo} alt="logo" className="w-60" />
+          <img src={logo} alt="logo" className="w-60 ml-16" />
         </div>
 
         {/* Login Form */}
-        <div className="flex flex-col gap-3" style={{ width: "550px" }}>
+        <div className="flex flex-col gap-3 ml-36" style={{ width: "550px" }}>
           {/* Login Header */}
           <div className="flex flex-row gap-2 items-center">
             <div className="bg-blue-800 w-10 h-0.5"></div>
@@ -113,11 +113,11 @@ function LoginPage() {
       </div>
 
       {/* Right Panel */}
-      <div className="basis-1/2 w-full h-full relative">
+      <div className="relative flex-1 h-full">
         <img
         src={loginImage}
         alt="login"
-        className=" h-full"
+        className=" absolute right-0 bottom-0 h-full w-auto max-w-[35vw] object-cover"
         style={{width:"50vw"}}
       />
 </div>
