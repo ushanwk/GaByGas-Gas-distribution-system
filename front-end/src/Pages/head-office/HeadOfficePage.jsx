@@ -1,6 +1,7 @@
 import barLogo from "../../assets/logo/bar-logo.png"
 import dashboardIcon from "../../assets/pages/outlet-page/dashboard-icon.png"
 import orderIcon from "../../assets/pages/outlet-page/order-icon.png"
+import Schedule from "../../assets/pages/outlet-page/truck 1.png"
 
 
 const HeadOfficePage = () => {
@@ -19,7 +20,13 @@ const HeadOfficePage = () => {
                             <span className="mr-2"><img src={dashboardIcon} className="w-5" /></span> Dashboard
                         </li>
                         <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4">
-                            <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Orders
+                            <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Token Orders
+                        </li>
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4">
+                            <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Outlet Orders
+                        </li>
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4">
+                            <span className="mr-2"><img src={Schedule} className="w-5" /></span> Schedules
                         </li>
                     </ul>
                 </nav>
