@@ -5,9 +5,20 @@ import ButtonComponent from "../../common/components/button/Button";
 import CusIcon from "../../assets/pages/register-page/cusIcon.jpg";
 import BusIcon from "../../assets/pages/register-page/BusIcon.png";
 import ImgButtonComponent from "./Components/ImgButton";
+import { useNavigate } from "react-router-dom";
 
 
 function RegisterPage() {
+
+  const navigate = useNavigate();
+
+  const handleNavigateRegisterbusiness = () => {
+    navigate("/business-reg");
+  };
+
+  const handleNavigateRegistercustomer = () => {
+    navigate("/customer-reg");
+  };
 
   const [formData, setFormData] = useState({
     email: "",
@@ -52,7 +63,7 @@ function RegisterPage() {
         
 
         <div className="pt-10 flex gap-14">
-          <div>
+          <div onClick={handleNavigateRegistercustomer}>
             <ImgButtonComponent
             label="Customer"
             src={CusIcon}
@@ -64,7 +75,7 @@ function RegisterPage() {
             />
           </div>
 
-          <div>
+          <div onClick={handleNavigateRegisterbusiness}>
             <ImgButtonComponent
             label="Business"
             src={BusIcon}
