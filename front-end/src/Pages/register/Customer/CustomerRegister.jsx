@@ -31,7 +31,7 @@ function CustomerRegister() {
 
     return (
         <div className="flex flex-row h-screen">
-            <div className="flex flex-col gap-y-40 basis-1/2 p-20 pl-44" style={{ backgroundColor: "#FFFBEE" }}>
+            <div className="flex flex-col gap-y-20 basis-1/2 p-20 pl-44" style={{ backgroundColor: "#FFFBEE" }}>
 
                 <div>
                     <div>
@@ -133,7 +133,7 @@ function CustomerRegister() {
                                 </div>
                             </div>
 
-                            <div className="">
+                            <div className="pt-10">
                             <ButtonComponent
                                 label="Register"
                                 onClick={onClick}

@@ -12,6 +12,15 @@ const SectionOne = () => {
     navigate("/login");
   };
 
+  const handleNavigateRegisterbusiness = () => {
+    navigate("/business-reg");
+  };
+
+  const handleNavigateRegistercustomer = () => {
+    navigate("/customer-reg");
+  };
+
+
 
   return (
     <section
@@ -54,7 +63,7 @@ const SectionOne = () => {
               backgroundPosition: "center",
               borderRadius: "8px", // Matches the `rounded-md` class
             }}
-            onClick={handleNavigateLogin()}
+            onClick={handleNavigateRegistercustomer}
           >
             <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">
               Register as a Customer
@@ -69,6 +78,7 @@ const SectionOne = () => {
               backgroundPosition: "center",
               borderRadius: "8px", // Matches the `rounded-md` class
             }}
+            onClick={handleNavigateRegisterbusiness}
           >
             <h1 className="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-white text-center font-bold transition-colors duration-300 group-hover:text-[#FFBF00]">
               Register as a Business

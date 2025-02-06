@@ -6,6 +6,8 @@ import Customer from "./Pages/customer/Customer.jsx";
 import HeadOfficePage from "./Pages/head-office/HeadOfficePage.jsx";
 import OutletPage from "./Pages/outlet/OutletPage.jsx";
 import Register from "./Pages/register/RegisterPage.jsx/";
+import BusinessRegister from './Pages/register/Business/BusinessRegister.jsx';
+import CustomerRegister from './Pages/register/Customer/CustomerRegister.jsx';
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/business-reg" element={<BusinessRegister />} />
+        <Route path="/customer-reg" element={<CustomerRegister />} />
         <Route path="/customer" element={<Customer/>} />
         <Route path="/head" element={<HeadOfficePage/>} />
         <Route path="/outlet" element={<OutletPage/>} />
