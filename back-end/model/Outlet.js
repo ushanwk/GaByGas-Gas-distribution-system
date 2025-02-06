@@ -5,4 +5,4 @@ const OutletSchema = new mongoose.Schema({
     Location: { type: String, required: true }
 })
 
-module.exports = mongoose.model('Toekn', OutletSchema);
+module.exports = mongoose.model('Outlet', OutletSchema);

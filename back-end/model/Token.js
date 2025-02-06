@@ -7,4 +7,4 @@ const TokenSchema = new mongoose.Schema({
     Status: { type: String, required: true }
 })
 
-module.exports = mongoose.model('Toekn', TokenSchema);
+module.exports = mongoose.model('Token', TokenSchema);
