@@ -4,8 +4,11 @@ import { useState } from "react";
 import axios from "axios"; // Import Axios
 import ButtonComponent from "../../../common/components/button/Button";
 import InputField from "../../../common/components/input-field/InputField.jsx";
+import { useNavigate } from "react-router-dom";
 
 function CustomerRegister() {
+
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         C_Name: "",
@@ -29,36 +32,39 @@ function CustomerRegister() {
     };
 
     const onClick = async (event) => {
+        
         event.preventDefault();
 
-        // Validate password and confirmPassword
-        if (formData.Password !== formData.confirmPassword) {
-            setError("Passwords do not match!");
-            return;
-        }
+    if (formData.Password !== formData.confirmPassword) {
+        setError("Passwords do not match!");
+        return;
+    }
 
-        setError(""); // Clear any previous errors
+    setError(""); // Clear any previous errors
 
-        try {
-            const response = await axios.post("http://localhost:8089/api/endCustomers", formData);
-            console.log("Response:", response.data);
-            setSuccessMessage("Registration successful!");
+    // ✅ Correct way to send formData to /verify page
+    navigate("/verify", { state: formData });
+
+        // try {
+        //     const response = await axios.post("http://localhost:8089/api/endCustomers", formData);
+        //     console.log("Response:", response.data);
+        //     setSuccessMessage("Registration successful!");
             
-            // Clear form after successful registration
-            setFormData({
-                C_Name: "",
-                NIC: "",
-                Email: "",
-                Tel_No: "",
-                Password: "",
-                confirmPassword: "",
-                Role: "EndCustomer",
-            });
+        //     // Clear form after successful registration
+        //     setFormData({
+        //         C_Name: "",
+        //         NIC: "",
+        //         Email: "",
+        //         Tel_No: "",
+        //         Password: "",
+        //         confirmPassword: "",
+        //         Role: "EndCustomer",
+        //     });
 
-        } catch (error) {
-            console.error("Error registering customer:", error.response?.data || error.message);
-            setError(error.response?.data?.message || "An error occurred while registering.");
-        }
+        // } catch (error) {
+        //     console.error("Error registering customer:", error.response?.data || error.message);
+        //     setError(error.response?.data?.message || "An error occurred while registering.");
+        // }
     };
 
     return (
