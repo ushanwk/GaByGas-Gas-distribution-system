@@ -1,4 +1,6 @@
 const EndCustomer = require("../model/EndCustomer");
+const User = require("../model/User");
+
 
 // Get all customers
 const getAllCustomers = async (req, res) => {
@@ -26,9 +28,11 @@ const getCustomer = async (req, res) => {
 
 // Add a new customer
 const addCustomer = async (req, res) => {
-  const { C_Id, C_Name, NIC, Tel_No, Email } = req.body;
+  const { C_Name, NIC, Tel_No, Email, Password, Role } = req.body;
+  const Username = Email;
   try {
-    const newCustomer = await EndCustomer.create({ C_Id, C_Name, NIC, Tel_No, Email });
+    const newCustomer = await EndCustomer.create({ C_Name, NIC, Tel_No, Email });
+    const user = await User.create({ Username, Password, Role });
     res.status(201).json(newCustomer);
   } catch (error) {
     res.status(400).json({ error: "Failed to add customer" });
