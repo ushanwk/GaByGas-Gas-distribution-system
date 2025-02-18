@@ -1,20 +1,30 @@
 import logo from "../../../assets/logo/bar-logo.png"
 import loginImage from "../../../assets/pages/register-page/Business/BusinessVerify.png"
-import  { useState } from "react";
+import { useLocation } from "react-router-dom"; // Add this line
+import { useEffect, useState } from "react";
 import ButtonComponent from "../../../common/components/button/Button";
 import InputField from "../../../common/components/input-field/InputField.jsx";
 
 
 function BusinessVerify() {
 
+    const location = useLocation();
+    const formDataFromRegister = location.state || {}; // Get passed data
+
     const [formData, setFormData] = useState({
-        name:"",
-        nic:"",
-        email: "",
-        telephone: "",
-        password:"",
-        confirmPassword:"",
+        name: formDataFromRegister.C_Name || "",
+        nic: formDataFromRegister.NIC || "",
+        email: formDataFromRegister.Email || "",
+        telephone: formDataFromRegister.Tel_No || "",
+        password: formDataFromRegister.Password || "",
+        confirmPassword: formDataFromRegister.confirmPassword || "",
     });
+
+    useEffect(() => {
+        console.log("Received Data:", formData);
+    }, [formData]);
+   
+
 
     const handleChange = (event) => {
         const { name, value } = event.target;

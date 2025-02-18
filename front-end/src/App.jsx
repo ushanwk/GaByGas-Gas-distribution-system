@@ -8,6 +8,7 @@ import OutletPage from "./Pages/outlet/OutletPage.jsx";
 import Register from "./Pages/register/RegisterPage.jsx/";
 import BusinessRegister from './Pages/register/Business/BusinessRegister.jsx';
 import CustomerRegister from './Pages/register/Customer/CustomerRegister.jsx';
+import BusinessVerify from "./Pages/register/BusinessVerify/BusinessVerify.jsx";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/head" element={<HeadOfficePage/>} />
         <Route path="/outlet" element={<OutletPage/>} />
         <Route path="/register" element={<Register />} />
+        <Route path="/verify" element={<BusinessVerify />} />
       </Routes>
     </Router>
   )
