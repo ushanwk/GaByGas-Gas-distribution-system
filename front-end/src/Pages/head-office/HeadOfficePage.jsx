@@ -1,10 +1,40 @@
-import barLogo from "../../assets/logo/bar-logo.png"
-import dashboardIcon from "../../assets/pages/outlet-page/dashboard-icon.png"
-import orderIcon from "../../assets/pages/outlet-page/order-icon.png"
-import Schedule from "../../assets/pages/outlet-page/truck 1.png"
-
+import { useState } from "react";  // Import useState hook
+import barLogo from "../../assets/logo/bar-logo.png";
+import dashboardIcon from "../../assets/pages/outlet-page/dashboard-icon.png";
+import orderIcon from "../../assets/pages/outlet-page/order-icon.png";
+import Schedule from "../../assets/pages/outlet-page/truck 1.png";
+import Outlet from "../../assets/pages/outlet-page/store.png";
+import InputField from "../../common/components/input-field/InputField.jsx";
+import ButtonComponent from "../../common/components/button/Button.jsx";
+import axios from "axios";
 
 const HeadOfficePage = () => {
+    // Step 1: Define state variables
+    const [outletName, setOutletName] = useState("");
+    const [location, setLocation] = useState("");
+
+    // Step 2: Handle input change
+    const handleOutletNameChange = (e) => setOutletName(e.target.value);
+    const handleLocationChange = (e) => setLocation(e.target.value);
+
+    // Step 3: Handle button click
+    const onClick = () => {
+        const addOutlet = async () => {
+            try {
+                const response = await axios.post('http://localhost:8089/api/outlets', {
+                    Name: outletName,  // Send the state values here
+                    Location: location
+                });
+
+                console.log('Outlet created:', response.data);
+            } catch (error) {
+                console.error('Error creating outlet:', error.response.data);
+            }
+        };
+
+        addOutlet();
+    };
+
     return (
         <div className="flex h-screen bg-yellow-50">
             {/* Sidebar */}
@@ -18,6 +48,9 @@ const HeadOfficePage = () => {
                     <ul>
                         <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4">
                             <span className="mr-2"><img src={dashboardIcon} className="w-5" /></span> Dashboard
+                        </li>
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4">
+                            <span className="mr-2"><img src={Outlet} className="w-5" /></span> Outlets
                         </li>
                         <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4">
                             <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Token Orders
@@ -56,9 +89,40 @@ const HeadOfficePage = () => {
 
                 {/* Content Area */}
                 <div className="flex-1 p-6 bg-yellow-50">
+                    <div>
+                        <h1 className="font-bold text-2xl text-blue-600">Add an Outlet</h1>
+                        <div className="flex gap-10 w-3/4 pb-4">
+                            {/* Step 4: Update the input fields */}
+                            <InputField
+                                label="Outlet Name"
+                                name="outlet name"
+                                placeholder="Enter outlet name"
+                                type="text"
+                                required
+                                value={outletName} // Bind value to state
+                                onChange={handleOutletNameChange} // Update state on change
+                            />
 
-
-
+                            <InputField
+                                label="Location"
+                                name="location"
+                                placeholder="Enter outlet location"
+                                type="text"
+                                required
+                                value={location} // Bind value to state
+                                onChange={handleLocationChange} // Update state on change
+                            />
+                        </div>
+                        <ButtonComponent
+                            label="Add Outlet"
+                            onClick={onClick}
+                            customColor="#004AB0"
+                            customWidth="250px"
+                            customHeight="50px"
+                            size="large"
+                            variant="contained"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
