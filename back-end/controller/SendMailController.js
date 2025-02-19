@@ -1,11 +1,17 @@
 const express = require('express');
 const dotenv = require("dotenv");
 const transporter = require('../util/Mailer');
+const generateOtp = require('../util/OtpGenerate');
 dotenv.config();
 
 const sendMail = async (req, res) => {
-    const { to, subject, text } = req.body;
-  
+    const { to } = req.body;
+    const otp = generateOtp();
+
+    const subject="Your OTP Code for Signup"
+    const text=`Thank you for signing up! Please use the OTP code below to complete your registration: OTP Code: ${otp}`
+    
+
     const mailOptions = {
       from: process.env.GMAIL_USER,
       to,
