@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8089;
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./db/db");
+
 const gasInventoryRoutes = require('./routes/gasInventoryRoutes');
 const businessRoutes = require('./routes/BusinessRoutes');
 const userRoutes = require('./routes/UserRoutes');
@@ -15,12 +16,12 @@ const endCustomerRoutes = require('./routes/EndCustomerRoutes');
 const tokenRoutes = require('./routes/TokenRoutes');
 const gasRequestOrderRoutes = require('./routes/GasRequestOrderRoutes');
 const deliveryScheduleRoutes = require('./routes/DeliveryScheduleRoutes');
+const mailRoutes = require('./routes/MailRoute');
 
 dotenv.config();
 
 // Connect to MongoDB
 connectDB();
-
 
 // Middleware
 app.use(express.json());
@@ -36,6 +37,7 @@ app.use('/api/endCustomers', endCustomerRoutes);
 app.use('/api/tokens', tokenRoutes);
 app.use('/api/gasRequestOders', gasRequestOrderRoutes);
 app.use('/api/deliverySchedules', deliveryScheduleRoutes);
+app.use('/api/sendMail', mailRoutes);
 
 app.use(express.json());
 
@@ -48,6 +50,7 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
 
 // Export app
 module.exports = app;
