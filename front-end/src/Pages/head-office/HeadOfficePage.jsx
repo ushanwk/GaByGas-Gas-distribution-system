@@ -22,7 +22,7 @@ const HeadOfficePage = () => {
     const handleLocationChange = (e) => setLocation(e.target.value);
 
     // Step 3: Handle button click
-    const onClick = () => {
+    const onClickAddOutlet = () => {
         const addOutlet = async () => {
             try {
                 const response = await axios.post('http://localhost:8089/api/outlets', {
@@ -38,6 +38,47 @@ const HeadOfficePage = () => {
 
         addOutlet();
     };
+
+    const [GI_Id, setGI_Id] = useState("");
+    const [gasType, setGasType] = useState("");
+    const [quantity, setQuantity] = useState("");
+
+    const handleGI_Id = (e) => setGI_Id(e.target.value);
+    const handlegasType = (e) => setGasType(e.target.value);
+    const handlequantity = (e) => setQuantity(e.target.value);
+
+
+    const fetchInventory = async () => {
+        try {
+            const response = await axios.get('http://localhost:8089/api/gasInventory');
+            setInventory(response.data);  // Update inventory state
+        } catch (error) {
+            console.error("Error fetching inventory:", error);
+        }
+    };
+
+    const onClickUpdateInventory = () => {
+        if (!GI_Id) {
+            console.error("Inventory ID is required for updating.");
+            return;
+        }
+
+        const updateGasInventory = async () => {
+            try {
+                const response = await axios.put(`http://localhost:8089/api/gasInventory/${GI_Id}`, {
+                    Gas_Type: gasType,
+                    Amount: quantity
+                });
+                console.log("Updated inventory:", response.data);
+                fetchInventory();
+            } catch (error) {
+                console.error("Error updating inventory:", error.response?.data || error.message);
+            }
+        };
+
+        updateGasInventory();
+    };
+
 
     const [tab, setTab] = useState(0);
 
@@ -131,7 +172,7 @@ const HeadOfficePage = () => {
                         </div>
                         <ButtonComponent
                             label="Add Outlet"
-                            onClick={onClick}
+                            onClick={onClickAddOutlet}
                             customColor="#004AB0"
                             customWidth="250px"
                             customHeight="50px"
@@ -144,11 +185,23 @@ const HeadOfficePage = () => {
                 {tab === 2 ? (
                     <div className="flex-1 p-6 bg-yellow-50">
                         <h1 className="font-bold text-2xl text-blue-600">Inventory</h1>
+
+                        <InputField
+                            width="35%"
+                            label="Gas ID"
+                            name="GasID"
+                            placeholder="Enter GAS ID"
+                            type="text"
+                            required
+                            value={GI_Id}
+                            onChange={handleGI_Id}
+                        />
+
                         <div className="flex gap-4 w-2/5 pb-4">
                             <SelectionField
                                 width="100%"
                                 label={"Select Gas Type"} name={"GasType"}
-                                onChange={(e) => setOutletType(e.target.value)}
+                                onChange={(e) => setGasType(e.target.value)}
                                 options={[
                                     { value: "Small", label: "Small" },
                                     { value: "Large", label: "Large" },
@@ -161,13 +214,13 @@ const HeadOfficePage = () => {
                                 placeholder="Enter GAS Quantity"
                                 type="number"
                                 required
-                                // value={location}
-                                // onChange={handleLocationChange}
+                                value={quantity}
+                                onChange={handlequantity}
                             />
                         </div>
                         <ButtonComponent
-                            label="Add Stock"
-                            onClick={onClick}
+                            label="Update Stock"
+                            onClick={onClickUpdateInventory}
                             customColor="#004AB0"
                             customWidth="250px"
                             customHeight="50px"
