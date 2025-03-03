@@ -1,9 +1,9 @@
 import SelectionField from "../../../common/components/selection-field/SelectionField.jsx";
 import InputField from "../../../common/components/input-field/InputField.jsx";
 import ButtonComponent from "../../../common/components/button/Button.jsx";
-import {InventoryTable} from "../InventoryTable/InventoryTable.jsx";
 import axios from "axios";
 import {useState} from "react";
+import {InventoryTable} from "./InventoryTable.jsx";
 
 export const InventoryManagement = () => {
 
@@ -78,9 +78,8 @@ export const InventoryManagement = () => {
                 variant="contained"
             />
 
-            <div className="mt-10">
-                <InventoryTable/>
-            </div>
+           <InventoryTable />
+
         </div>
     )
 }

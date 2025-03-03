@@ -2,6 +2,7 @@ import InputField from "../../../common/components/input-field/InputField.jsx";
 import ButtonComponent from "../../../common/components/button/Button.jsx";
 import axios from "axios";
 import {useState} from "react";
+import {OutletTable} from "./OutletTable.jsx";
 
 export const OutletManagementPage = () => {
 
@@ -63,6 +64,9 @@ export const OutletManagementPage = () => {
                 size="large"
                 variant="contained"
             />
+
+
+            <OutletTable />
         </div>
     )
 }

@@ -10,7 +10,7 @@ const getAllGasInvetory = async (req, res) => {
       }
 };
 const getGasInvetory = async (req, res) => {
-    const gasInventoryID = req.params.id;
+
     try {
       const gasInvetory = await GasInventory.findById({GI_Id : gasInventoryID});
       if (!gasInvetory) {
