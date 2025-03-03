@@ -2,14 +2,16 @@ import { useState } from "react";  // Import useState hook
 import barLogo from "../../assets/logo/bar-logo.png";
 import dashboardIcon from "../../assets/pages/outlet-page/dashboard-icon.png";
 import orderIcon from "../../assets/pages/outlet-page/order-icon.png";
-import Schedule from "../../assets/pages/outlet-page/truck 1.png";
+import Schedule from "../../assets/pages/outlet-page/truck.png";
 import Outlet from "../../assets/pages/outlet-page/store.png";
 import Inventory from "../../assets/pages/outlet-page/inventory.png";
 import InputField from "../../common/components/input-field/InputField.jsx";
 import ButtonComponent from "../../common/components/button/Button.jsx";
 import axios from "axios";
 import SelectionField from "../../common/components/selection-field/SelectionField.jsx";
-import {InventoryTable} from "./InventoryTable/InventoryTable.jsx";
+import {InventoryTable} from "./Tables/InventoryTable.jsx";
+import Schedules from "./Schedules.jsx"
+import ScheduleBg from "../../assets/pages/outlet-page/ScheduleBack.jpg"
 // import {tab} from "@material-tailwind/react";
 
 const HeadOfficePage = () => {
@@ -111,7 +113,7 @@ const HeadOfficePage = () => {
                         <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" >
                             <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Outlet Orders
                         </li>
-                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" >
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(5)} >
                             <span className="mr-2"><img src={Schedule} className="w-5" /></span> Schedules
                         </li>
                     </ul>
@@ -231,6 +233,12 @@ const HeadOfficePage = () => {
                         <div className="mt-10">
                         <InventoryTable/>
                         </div>
+                    </div>
+                ) : null}
+
+                {tab === 5 ? (
+                    <div className="flex-1 p-6 pb-5" style={{ backgroundImage: `url(${ScheduleBg})`, height: '100vh' }}>
+                        <Schedules/>
                     </div>
                 ) : null}
             </div>
