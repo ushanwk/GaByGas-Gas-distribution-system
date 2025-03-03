@@ -3,7 +3,7 @@ const GasInventory=require("../model/GasInvetory");
 
 const getAllGasInvetory = async (req, res) => {
     try {
-        const gasInvetory  = await GasInventory.find(); 
+        const gasInvetory  = await GasInventory.find();
         res.status(200).json(gasInvetory);
       } catch (error) {
         res.status(500).json({ error: "Failed to fetch GasInventory" });
@@ -22,9 +22,9 @@ const getGasInvetory = async (req, res) => {
     }
 };
 const addGasInvetory = async (req, res) => {
-    const { GI_Id, S_Amount, L_Amount } = req.body;
+    const { GI_Id, Gas_Type, Amount } = req.body;
     try {
-      const gasInvetory = await GasInventory.create( { GI_Id, S_Amount, L_Amount });
+      const gasInvetory = await GasInventory.create( { GI_Id, Gas_Type, Amount });
       res.status(201).json(gasInvetory);
     } catch (error) {
       res.status(400).json({ error: "Failed to create gasInvetory" });
