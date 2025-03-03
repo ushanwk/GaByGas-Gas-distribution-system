@@ -25,11 +25,7 @@ const getOutlet = async (req, res) => {
 const addOutlet = async (req, res) => {
   const { Name, Location } = req.body;
   try {
-<<<<<<< HEAD
-    const outlet = await Outlet.create({ Outlet_Id, Location, Name });
-=======
-    const outlet = await Outlet.create({ Name, Location });
->>>>>>> origin/dev-sathin
+    const outlet = await Outlet.create({Name, Location});
     res.status(201).json(outlet);
   } catch (error) {
     res.status(400).json({ error: "Failed to create outlet" });

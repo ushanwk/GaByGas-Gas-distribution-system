@@ -22,12 +22,21 @@ const getGasInvetory = async (req, res) => {
     }
 };
 const addGasInvetory = async (req, res) => {
-    const { GI_Id, Gas_Type, Amount } = req.body;
+    const { Gas_Type, Amount } = req.body;
+
     try {
-      const gasInvetory = await GasInventory.create( { GI_Id, Gas_Type, Amount });
-      res.status(201).json(gasInvetory);
+        const existingGasInventory = await GasInventory.findOne({ Gas_Type });
+
+        if (existingGasInventory) {
+            existingGasInventory.Amount = Amount;
+            await existingGasInventory.save();  // Save the updated record
+            res.status(200).json(existingGasInventory);  // Return the updated inventory
+        } else {
+            const newGasInventory = await GasInventory.create({ Gas_Type, Amount });
+            res.status(201).json(newGasInventory);  // Return the newly created record
+        }
     } catch (error) {
-      res.status(400).json({ error: "Failed to create gasInvetory" });
+        res.status(400).json({ error: "Failed to add or update gas inventory" });
     }
 };
 const updateGasInvetory = async (req, res) => {
