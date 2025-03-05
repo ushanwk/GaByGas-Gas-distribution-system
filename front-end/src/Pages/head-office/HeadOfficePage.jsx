@@ -11,7 +11,9 @@ import axios from "axios";
 import SelectionField from "../../common/components/selection-field/SelectionField.jsx";
 import {InventoryTable} from "./Tables/InventoryTable.jsx";
 import Schedules from "./Schedules.jsx"
-import ScheduleBg from "../../assets/pages/outlet-page/ScheduleBack.jpg"
+import ScheduleBg from "../../assets/pages/outlet-page/ScheduleBack.jpg";
+import {TokenOrderTable} from "./Tables/TokenOrderTable.jsx";
+import {OutletOrderTable} from "./Tables/OutletOrderTable.jsx";
 // import {tab} from "@material-tailwind/react";
 
 const HeadOfficePage = () => {
@@ -107,10 +109,10 @@ const HeadOfficePage = () => {
                         <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(2)}>
                             <span className="mr-2"><img src={Inventory} className="w-5" /></span> Inventory
                         </li>
-                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" >
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(3)}>
                             <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Token Orders
                         </li>
-                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" >
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(4)}>
                             <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Outlet Orders
                         </li>
                         <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(5)} >
@@ -233,6 +235,20 @@ const HeadOfficePage = () => {
                         <div className="mt-10">
                         <InventoryTable/>
                         </div>
+                    </div>
+                ) : null}
+
+                {tab === 3 ? (
+                    <div className="flex-1 p-6 bg-yellow-50">
+                        <h1 className="font-bold text-2xl text-blue-600">Token Orders</h1>
+                        <TokenOrderTable/>
+                    </div>
+                ) : null}
+
+                {tab === 4 ? (
+                    <div className="flex-1 p-6 bg-yellow-50">
+                        <h1 className="font-bold text-2xl text-blue-600">Token Orders</h1>
+                        <OutletOrderTable/>
                     </div>
                 ) : null}
 
