@@ -2,12 +2,21 @@ import { useState } from "react";  // Import useState hook
 import barLogo from "../../assets/logo/bar-logo.png";
 import dashboardIcon from "../../assets/pages/outlet-page/dashboard-icon.png";
 import orderIcon from "../../assets/pages/outlet-page/order-icon.png";
-import Schedule from "../../assets/pages/outlet-page/truck 1.png";
+import Schedule from "../../assets/pages/outlet-page/truck.png";
 import Outlet from "../../assets/pages/outlet-page/store.png";
 import Inventory from "../../assets/pages/outlet-page/inventory.png";
 import axios from "axios";
+<<<<<<< HEAD
 import {OutletManagementPage} from "./outlet-management/OutletManagementPage.jsx";
 import {InventoryManagement} from "./inventory-management/InventoryManagement.jsx";
+=======
+import SelectionField from "../../common/components/selection-field/SelectionField.jsx";
+import {InventoryTable} from "./Tables/InventoryTable.jsx";
+import Schedules from "./Schedules.jsx"
+import ScheduleBg from "../../assets/pages/outlet-page/ScheduleBack.jpg";
+import {TokenOrderTable} from "./Tables/TokenOrderTable.jsx";
+import {OutletOrderTable} from "./Tables/OutletOrderTable.jsx";
+>>>>>>> origin/dev-sathin
 // import {tab} from "@material-tailwind/react";
 
 const HeadOfficePage = () => {
@@ -36,13 +45,13 @@ const HeadOfficePage = () => {
                         <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(2)}>
                             <span className="mr-2"><img src={Inventory} className="w-5" /></span> Inventory
                         </li>
-                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" >
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(3)}>
                             <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Token Orders
                         </li>
-                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" >
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(4)}>
                             <span className="mr-2"><img src={orderIcon} className="w-5" /></span> Outlet Orders
                         </li>
-                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" >
+                        <li className="py-2 px-4 text-gray-700 hover:bg-blue-100 cursor-pointer flex items-center mb-4" onClick={() => setTab(5)} >
                             <span className="mr-2"><img src={Schedule} className="w-5" /></span> Schedules
                         </li>
                     </ul>
@@ -84,6 +93,26 @@ const HeadOfficePage = () => {
 
                 {tab === 2 ? (
                    <InventoryManagement />
+                ) : null}
+
+                {tab === 3 ? (
+                    <div className="flex-1 p-6 bg-yellow-50">
+                        <h1 className="font-bold text-2xl text-blue-600">Token Orders</h1>
+                        <TokenOrderTable/>
+                    </div>
+                ) : null}
+
+                {tab === 4 ? (
+                    <div className="flex-1 p-6 bg-yellow-50">
+                        <h1 className="font-bold text-2xl text-blue-600">Token Orders</h1>
+                        <OutletOrderTable/>
+                    </div>
+                ) : null}
+
+                {tab === 5 ? (
+                    <div className="flex-1 p-6 pb-5" style={{ backgroundImage: `url(${ScheduleBg})`, height: '100vh' }}>
+                        <Schedules/>
+                    </div>
                 ) : null}
             </div>
         </div>

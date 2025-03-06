@@ -1,7 +1,7 @@
 import barLogo from "../../assets/logo/bar-logo.png"
 import dashboardIcon from "../../assets/pages/outlet-page/dashboard-icon.png"
 import TokenIcon from "../../assets/pages/outlet-page/order-icon.png"
-import ScheduleIcon from "../../assets/pages/outlet-page/truck 1.png"
+import ScheduleIcon from "../../assets/pages/outlet-page/truck.png"
 import OrderIcon from "../../assets/pages/outlet-page/purchase-order 1.png"
 import {useState} from "react";
 import {TokenTable} from "./TokenTable/TokenTable.jsx";
