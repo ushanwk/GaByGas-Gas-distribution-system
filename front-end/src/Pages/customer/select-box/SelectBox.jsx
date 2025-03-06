@@ -20,9 +20,8 @@ const SelectBox = () => {
                     className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm text-black"
                 >
                     <option disabled>Select an option</option>
-                    <option value="Option 1">Option 1</option>
-                    <option value="Option 2">Option 2</option>
-                    <option value="Option 3">Option 3</option>
+                    <option value="Option 1">Small Gas</option>
+                    <option value="Option 2">Large Gas</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                 </div>

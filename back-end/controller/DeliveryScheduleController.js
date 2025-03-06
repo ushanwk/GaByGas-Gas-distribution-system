@@ -27,31 +27,25 @@ const getDeliverySchedule = async (req, res) => {
 // Add a new delivery schedule
 const addDeliverySchedule = async (req, res) => {
   const {
-    DS_Id,
     Outlet_Id,
     ReleaseDate,
     ReachingDate,
     Status,
     S_Amount,
     L_Amount,
-    Units_Amount,
-    Latest_Updated,
   } = req.body;
   try {
     const newDeliverySchedule = await DeliverySchedule.create({
-      DS_Id,
       Outlet_Id,
       ReleaseDate,
       ReachingDate,
       Status,
       S_Amount,
       L_Amount,
-      Units_Amount,
-      Latest_Updated,
     });
     res.status(201).json(newDeliverySchedule);
   } catch (error) {
-    res.status(400).json({ error: "Failed to add delivery schedule" });
+    res.status(400).json({ error: "Failed to add delivery schedule", error });
   }
 };
 

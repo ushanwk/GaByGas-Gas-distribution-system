@@ -6,17 +6,15 @@ import Schedule from "../../assets/pages/outlet-page/truck.png";
 import Outlet from "../../assets/pages/outlet-page/store.png";
 import Inventory from "../../assets/pages/outlet-page/inventory.png";
 import axios from "axios";
-<<<<<<< HEAD
 import {OutletManagementPage} from "./outlet-management/OutletManagementPage.jsx";
 import {InventoryManagement} from "./inventory-management/InventoryManagement.jsx";
-=======
 import SelectionField from "../../common/components/selection-field/SelectionField.jsx";
 import {InventoryTable} from "./Tables/InventoryTable.jsx";
 import Schedules from "./Schedules.jsx"
 import ScheduleBg from "../../assets/pages/outlet-page/ScheduleBack.jpg";
 import {TokenOrderTable} from "./Tables/TokenOrderTable.jsx";
 import {OutletOrderTable} from "./Tables/OutletOrderTable.jsx";
->>>>>>> origin/dev-sathin
+
 // import {tab} from "@material-tailwind/react";
 
 const HeadOfficePage = () => {

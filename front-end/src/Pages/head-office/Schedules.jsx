@@ -1,7 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {ScheduleTable} from "../head-office/Tables/ScheduleTable.jsx";
+import axios from "axios";
 
 export default function Schedules() {
+
+
+    const [outlet, setOutlet] = useState([]);
+    const [selectedOutlet, setSelectedOutlet] = useState("");
+
+    useEffect(() => {
+        const fetchGasInventory = async () => {
+            try {
+                const response = await axios.get('http://localhost:8089/api/outlets');
+                setOutlet(response.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchGasInventory();
+    }, []);
+
+
     const [schedule, setSchedule] = useState({
         sendingDate: "",
         receivingDate: "",
@@ -18,9 +38,35 @@ export default function Schedules() {
         }));
     };
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log("Schedule added:", schedule);
+        
+        try {
+            const ReleaseDate = new Date(schedule.sendingDate);
+            const ReachingDate = new Date(schedule.receivingDate);
+            const Outlet_Id = selectedOutlet;
+            const S_Amount = parseInt(schedule.smallGasQty, 10);
+            const L_Amount = parseInt(schedule.largeGasQty, 10);
+            const status = "Pending";
+
+        
+            const response = await axios.post('http://localhost:8089/api/deliverySchedules', {
+                "Outlet_Id": Outlet_Id,
+                "ReleaseDate": ReleaseDate,
+                "ReachingDate": ReachingDate,
+                "Status": status,
+                "S_Amount": S_Amount,
+                "L_Amount": L_Amount
+            });
+
+            console.log(response);
+
+            
+        } catch (error) {
+            console.error('Error creating outlet', error);
+        }
+
     };
 
     return (
@@ -84,6 +130,24 @@ export default function Schedules() {
                        </div>
 
                    </div>
+
+
+                   <div>
+                   <select
+                        className="bg-white text-black p-2 rounded w-full border border-gray-300"
+                        value={selectedOutlet}
+                        onChange={(e) => setSelectedOutlet(e.target.value)}
+                    >
+                        <option value="">Select an Outlet</option> 
+                        {outlet.map((out) => (
+                            <option key={out.Outlet_Id} value={out.Outlet_Id}>
+                                {out.Name}
+                            </option>
+                        ))}
+                    </select>
+
+                   </div>
+
                     </div>
 
                     <div className="flex justify-center ">
