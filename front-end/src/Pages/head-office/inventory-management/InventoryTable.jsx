@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const InventoryTable = () => {
 
-
     const [gasInventory, setGasInventory] = useState([]);
 
     useEffect(() => {
