@@ -5,15 +5,13 @@ import orderIcon from "../../assets/pages/outlet-page/order-icon.png";
 import Schedule from "../../assets/pages/outlet-page/truck.png";
 import Outlet from "../../assets/pages/outlet-page/store.png";
 import Inventory from "../../assets/pages/outlet-page/inventory.png";
-import axios from "axios";
 import {OutletManagementPage} from "./outlet-management/OutletManagementPage.jsx";
 import {InventoryManagement} from "./inventory-management/InventoryManagement.jsx";
-import SelectionField from "../../common/components/selection-field/SelectionField.jsx";
-import {InventoryTable} from "./Tables/InventoryTable.jsx";
 import Schedules from "./Schedules.jsx"
 import ScheduleBg from "../../assets/pages/outlet-page/ScheduleBack.jpg";
 import {TokenOrderTable} from "./Tables/TokenOrderTable.jsx";
 import {OutletOrderTable} from "./Tables/OutletOrderTable.jsx";
+import TokenIcon from "../../assets/pages/outlet-page/order-icon.png";
 
 // import {tab} from "@material-tailwind/react";
 
@@ -80,9 +78,32 @@ const HeadOfficePage = () => {
 
                 {/* Content Area */}
                 {tab === 0 ? (
-                    <div className="flex-1 p-6 bg-yellow-50">
-                        <h1 className="font-bold text-2xl text-blue-600">Welcome</h1>
+                    <div className="p-5 flex flex-col items-center">
+                        <h1 className="font-bold text-2xl mb-10">Dashboard</h1>
+                        <div className="grid grid-cols-2 gap-10 place-items-center mt-20">
+
+                            <div className="h-56 w-96 hover:scale-110 bg-white border-2 border-yellow-200 rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-2">
+                                <img src={TokenIcon} alt="Token Icon" className="h-16 w-16" />
+                                <h2 className="text-2xl font-bold">20</h2>
+                                <h1 className="text-lg text-gray-600">Total Tokens</h1>
+                            </div>
+
+                            <div className="h-56 w-96 hover:scale-110 bg-white border-2 border-yellow-200 rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-2">
+                                <img src={TokenIcon} alt="Token Icon" className="h-16 w-16" />
+                                <h2 className="text-2xl font-bold">20</h2>
+                                <h1 className="text-lg text-gray-600">Total Tokens</h1>
+                            </div>
+
+                            <div className="col-span-2 flex justify-center">
+                                <div className="h-56 w-96 hover:scale-110 bg-white border-2 border-yellow-200 rounded-2xl shadow-2xl flex flex-col items-center justify-center gap-2">
+                                    <img src={TokenIcon} alt="Token Icon" className="h-16 w-16" />
+                                    <h2 className="text-2xl font-bold">20</h2>
+                                    <h1 className="text-lg text-gray-600">Total Tokens</h1>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                 ) : null}
 
                 {tab === 1 ? (

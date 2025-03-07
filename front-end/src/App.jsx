@@ -9,6 +9,7 @@ import Register from "./Pages/register/RegisterPage.jsx/";
 import BusinessRegister from './Pages/register/Business/BusinessRegister.jsx';
 import CustomerRegister from './Pages/register/Customer/CustomerRegister.jsx';
 import BusinessVerify from "./Pages/register/BusinessVerify/BusinessVerify.jsx";
+import Business from "./Pages/business/Business.jsx";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/business-reg" element={<BusinessRegister />} />
         <Route path="/customer-reg" element={<CustomerRegister />} />
         <Route path="/customer" element={<Customer/>} />
+        <Route path="/business" element={<Business/>} />
         <Route path="/head" element={<HeadOfficePage/>} />
         <Route path="/outlet" element={<OutletPage/>} />
         <Route path="/register" element={<Register />} />
