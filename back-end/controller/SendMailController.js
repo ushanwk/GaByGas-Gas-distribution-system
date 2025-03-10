@@ -5,7 +5,7 @@ const generateOtp = require('../util/OtpGenerate');
 dotenv.config();
 
 const sendMail = async (req, res) => {
-    const { to } = req.body;
+  const to = req.query.email;
     const otp = generateOtp();
 
     const subject="Your OTP Code for Signup"

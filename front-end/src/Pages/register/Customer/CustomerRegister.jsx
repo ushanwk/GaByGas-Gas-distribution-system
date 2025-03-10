@@ -40,31 +40,29 @@ function CustomerRegister() {
         return;
     }
 
-    setError(""); // Clear any previous errors
 
-    // ✅ Correct way to send formData to /verify page
-    navigate("/verify", { state: formData });
+        try {
+            const response = await axios.post(`http://localhost:8089/api/sendMail?email=${formData.Email}`);
+            console.log("Response:", response.otp);  
+            navigate("/verify", { state: { ...formData, otp: response.data.otp } });          
 
-        // try {
-        //     const response = await axios.post("http://localhost:8089/api/endCustomers", formData);
-        //     console.log("Response:", response.data);
-        //     setSuccessMessage("Registration successful!");
-            
-        //     // Clear form after successful registration
-        //     setFormData({
-        //         C_Name: "",
-        //         NIC: "",
-        //         Email: "",
-        //         Tel_No: "",
-        //         Password: "",
-        //         confirmPassword: "",
-        //         Role: "EndCustomer",
-        //     });
+        } catch (error) {
+            console.error("Error Send Otp:", error.response?.data || error.message);
+            setError(error.response?.data?.message || "An error occurred while otp.");
+        }
+    };
 
-        // } catch (error) {
-        //     console.error("Error registering customer:", error.response?.data || error.message);
-        //     setError(error.response?.data?.message || "An error occurred while registering.");
-        // }
+    const clearForm=()=>{
+        // Clear form after successful registration
+        setFormData({
+            C_Name: "",
+            NIC: "",
+            Email: "",
+            Tel_No: "",
+            Password: "",
+            confirmPassword: "",
+            Role: "EndCustomer",
+        });
     };
 
     return (

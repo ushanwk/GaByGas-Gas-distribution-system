@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom"; // Add this line
 import { useEffect, useState } from "react";
 import ButtonComponent from "../../../common/components/button/Button";
 import InputField from "../../../common/components/input-field/InputField.jsx";
+import axios from "axios"; 
 
 
 function BusinessVerify() {
@@ -12,13 +13,17 @@ function BusinessVerify() {
     const formDataFromRegister = location.state || {}; // Get passed data
 
     const [formData, setFormData] = useState({
-        name: formDataFromRegister.C_Name || "",
-        nic: formDataFromRegister.NIC || "",
+        C_Name: formDataFromRegister.C_Name || "",
+        NIC: formDataFromRegister.NIC || "",
         email: formDataFromRegister.Email || "",
-        telephone: formDataFromRegister.Tel_No || "",
-        password: formDataFromRegister.Password || "",
-        confirmPassword: formDataFromRegister.confirmPassword || "",
+        Email: formDataFromRegister.Tel_No || "",
+        Password: formDataFromRegister.Password || "",
+        Role: "End Customer",
+        Tel_No:formDataFromRegister.Tel_No || "",
     });
+
+    const [otp, setOtp] = useState(""); // Input field OTP
+    const [serverOtp, setServerOtp] = useState(formDataFromRegister.otp || ""); // OTP from backend
 
     useEffect(() => {
         console.log("Received Data:", formData);
@@ -28,15 +33,31 @@ function BusinessVerify() {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
+        setOtp(value); // Update OTP state
     };
 
-    const onClick = (event) => {
-        event.preventDefault();
-        console.log("Form Data Submitted:", formData);
+    const onClick = async (event) => {
+        event.preventDefault(); 
+        console.log("CHECK ,",serverOtp);
+        console.log("dsd",otp);
+        
+             
+        if (otp !== serverOtp) {
+            alert("Invalid OTP! Please check and try again.");
+            return;
+        }
+        console.log("OTP Verified Successfully!");
+
+        // Call API to save form data after OTP verification
+        try {
+            const response = await axios.post("http://localhost:8089/api/endCustomers", formData);
+            console.log("Registration Success:", response.data);
+            alert("Registration Successful!");
+            // Redirect or navigate to login/dashboard if needed
+        } catch (error) {
+            console.error("Error Registering:", error);
+            alert("Registration Failed! Please try again.");
+        }
     };
 
     return (
@@ -65,13 +86,13 @@ function BusinessVerify() {
 
                     <div className="pt-5">
                         <div>
-                            <InputField
+                        <InputField
                                 label="Verify Email"
-                                name="name"
-                                value={formData.name}
+                                name="otp"
+                                value={otp}
                                 onChange={handleChange}
                                 placeholder="Enter your OTP"
-                                type="Text"
+                                type="text"
                                 required
                                 width="550px"
                             />
