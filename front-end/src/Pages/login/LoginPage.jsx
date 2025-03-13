@@ -11,6 +11,11 @@ function LoginPage() {
     password: "",
   });
 
+  const demo = {
+    email: "ABC",
+    password: "1234"
+  }
+
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -23,7 +28,16 @@ function LoginPage() {
 
   const onClick = (event) => {
     event.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    
+    if(formData.email === demo.email && formData.password === demo.password){
+      console.log(formData.email, formData.password, true);
+
+      localStorage.setItem("user", JSON.stringify(formData));
+
+      navigate("/customer");
+    }else{
+      console.log("Incorrect username or password");
+    }
   };
 
   const navigateRegister = () => {

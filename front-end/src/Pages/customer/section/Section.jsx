@@ -1,8 +1,19 @@
+import { useEffect } from "react";
 import bgImage from "../../../assets/pages/customer-page/customer-bg-img.png";
 import SelectBox from "../select-box/SelectBox.jsx";
 import { CustomerTable } from "../Table/Table.jsx";
 
 const SectionOne = () => {
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      console.log("Stored User Data:", JSON.parse(storedUser));
+    } else {
+      console.log("No user found in local storage");
+    }
+  }, []);
+
   return (
     <section
       id="section_1"
