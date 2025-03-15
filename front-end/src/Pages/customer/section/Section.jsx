@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import bgImage from "../../../assets/pages/customer-page/customer-bg-img.png";
 import SelectBox from "../select-box/SelectBox.jsx";
 import axios from "axios";
@@ -8,6 +9,7 @@ import React, { useState } from "react";
 
 const SectionOne = () => {
 
+<<<<<<< HEAD
   const [selectedGasType, setSelectedGasType] = useState(""); 
   const [selectedOutlet, seUserIdtSelectedOutlet] = useState(""); 
 
@@ -46,6 +48,16 @@ const SectionOne = () => {
       alert("Failed to submit gas request. Please try again.");
     }
   };
+=======
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      console.log("Stored User Data:", JSON.parse(storedUser));
+    } else {
+      console.log("No user found in local storage");
+    }
+  }, []);
+>>>>>>> 706333582ec28b4bbbfff04bb8e0b6bf593ab34c
 
   return (
     <section
