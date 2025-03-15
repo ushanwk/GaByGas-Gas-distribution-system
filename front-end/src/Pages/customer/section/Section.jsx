@@ -9,7 +9,6 @@ import React, { useState } from "react";
 
 const SectionOne = () => {
 
-<<<<<<< HEAD
   const [selectedGasType, setSelectedGasType] = useState(""); 
   const [selectedOutlet, seUserIdtSelectedOutlet] = useState(""); 
 
@@ -33,8 +32,9 @@ const SectionOne = () => {
       GasType: selectedGasType,
       Outlet_Id: selectedOutlet,
       Username: username,
-      userId: userId,
+      UserId: userId,
       Amount: qty,
+      GRO_Id:"001"
     };
 
     console.log("Request Data:", requestData);
@@ -45,10 +45,11 @@ const SectionOne = () => {
       console.log("Response:", response.data);
     } catch (error) {
       console.error("Error submitting gas request:", error);
-      alert("Failed to submit gas request. Please try again.");
+      const errorMessage = error.response?.data?.error || "An unknown error occurred";
+  
+      alert(errorMessage);
     }
   };
-=======
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -57,7 +58,6 @@ const SectionOne = () => {
       console.log("No user found in local storage");
     }
   }, []);
->>>>>>> 706333582ec28b4bbbfff04bb8e0b6bf593ab34c
 
   return (
     <section

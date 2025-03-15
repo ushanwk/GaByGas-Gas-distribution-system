@@ -1,5 +1,6 @@
 const GasRequestOrder = require("../model/GasRequestOrder");
-
+const GasInventory=require("../model/GasInvetory");
+const DeliverySchedule = require("../model/DeliverySchedule");
 
 // Get all gas request orders
 const getAllGasRequestOrders = async (req, res) => {
@@ -26,69 +27,72 @@ const getGasRequestOrder = async (req, res) => {
 };
 
 // Add a new gas request order
-const addGasRequestOrder = async (req, res) => {
-  const { GRO_Id, Username, Amount, Outlet_Id , GasType , UserId} = req.body;
-  try {
-    const newGasRequestOrder = await GasRequestOrder.create({ GRO_Id, Username, Amount, Outlet_Id ,GasType });
-    res.status(201).json(newGasRequestOrder);
-  } catch (error) {
-    res.status(400).json({ error: "Failed to add gas request order" });
-  }
-};
-
 // const addGasRequestOrder = async (req, res) => {
 //   const { GRO_Id, Username, Amount, Outlet_Id , GasType , UserId} = req.body;
-
 //   try {
-//     // Check Gas Inventory for stock
-//     const gasInventory = await GasInventory.findOne({ Gas_Type: GasType });
-    
-//     if (!gasInventory || gasInventory.Amount <= 0) {
-//       return res.status(400).json({ error: "Stock Finished" });
-//     }
-
-//     // Check Delivery Schedule
-//     const deliverySchedule = await DeliverySchedule.findOne({
-//       Outlet_Id,
-//       ReleaseDate: { $gte: new Date() }, // Check for future deliveries
-//       Status: "pending",
-//     });
-
-//     if (deliverySchedule) {
-//       // If a valid delivery schedule is found, create a new token
-//       const newToken = new Token({
-//         Token_Id: uuidv4(),
-//         GRO_Id,
-//         DS_Id: deliverySchedule.DS_Id,
-//         Status: "pending",
-//       });
-
-//       await newToken.save();
-//     } else {
-//       return res.status(400).json({ error: "No valid delivery schedule available" });
-//     }
-
-//     // Proceed with creating the gas request order
-//     const newGasRequestOrder = await GasRequestOrder.create({
-//       GRO_Id,
-//       Username,
-//       Amount,
-//       Outlet_Id,
-//       GasType,
-//     });
-
-//     // Decrease the inventory stock by the amount ordered
-//     gasInventory.Amount -= Amount;
-//     await gasInventory.save();
-
+//     const newGasRequestOrder = await GasRequestOrder.create({ GRO_Id, Username, Amount, Outlet_Id ,GasType });
 //     res.status(201).json(newGasRequestOrder);
 //   } catch (error) {
-//     console.error(error);
 //     res.status(400).json({ error: "Failed to add gas request order" });
 //   }
 // };
 
+const addGasRequestOrder = async (req, res) => {
+  const { GRO_Id, Username, Amount, Outlet_Id , GasType , UserId} = req.body;
+
+  try {
+    // Check Gas Inventory for stock
+    const gasInventory = await GasInventory.findOne({ Gas_Type: GasType });
+    
+    if (!gasInventory || gasInventory.Amount <= 0) {
+      return res.status(400).json({ error: "Stock Finished" });
+      
+    }
+
+    // Check Delivery Schedule
+    const deliverySchedule = await DeliverySchedule.findOne({
+      Outlet_Id,
+      ReleaseDate: { $gte: new Date() }, // Check for future deliveries
+      Status: "pending",
+    });
+
+    if (deliverySchedule) {
+      // If a valid delivery schedule is found, create a new token
+      const newToken = new Token({
+        Token_Id: uuidv4(),
+        GRO_Id,
+        DS_Id: deliverySchedule.DS_Id,
+        Status: "pending",
+      });
+
+      await newToken.save();
+    } else {
+      return res.status(400).json({ error: "No valid delivery schedule available" });
+    }
+
+    // Proceed with creating the gas request order
+    const newGasRequestOrder = await GasRequestOrder.create({
+      GRO_Id,
+      Username,
+      Amount,
+      Outlet_Id,
+      GasType,
+    });
+
+    // Decrease the inventory stock by the amount ordered
+    gasInventory.Amount -= Amount;
+    await gasInventory.save();
+
+    res.status(201).json(newGasRequestOrder);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ error: "Failed to add gas request order" });
+  }
+};
+
 // Update an existing gas request order
+
+
 const updateGasRequestOrder = async (req, res) => {
   const gasRequestOrderId = req.params.id;
   const updates = req.body;
