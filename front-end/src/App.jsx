@@ -9,10 +9,14 @@ import Register from "./Pages/register/RegisterPage.jsx/";
 import BusinessRegister from './Pages/register/Business/BusinessRegister.jsx';
 import CustomerRegister from './Pages/register/Customer/CustomerRegister.jsx';
 import BusinessVerify from "./Pages/register/BusinessVerify/BusinessVerify.jsx";
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
   return (
+    <>
+          <ToastContainer />
+
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -27,6 +31,7 @@ function App() {
         <Route path="/verify" element={<BusinessVerify />} />
       </Routes>
     </Router>
+    </>
   )
 }
 

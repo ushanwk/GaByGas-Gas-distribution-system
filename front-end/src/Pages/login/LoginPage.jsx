@@ -4,6 +4,10 @@ import { useState } from "react";
 import InputField from "../../common/components/input-field/InputField";
 import ButtonComponent from "../../common/components/button/Button";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function LoginPage() {
   const [formData, setFormData] = useState({
@@ -26,19 +30,35 @@ function LoginPage() {
     }));
   };
 
-  const onClick = (event) => {
+  const onClick = async(event) => {
     event.preventDefault();
     
-    if(formData.email === demo.email && formData.password === demo.password){
-      console.log(formData.email, formData.password, true);
+    const userId = formData.email;
 
-      localStorage.setItem("user", JSON.stringify(formData));
+    try {
+        const response = await axios.get(`http://localhost:8089/api/users/${userId}`);
 
-      navigate("/customer");
-    }else{
-      console.log("Incorrect username or password");
+        const demo = {
+            email: response.data.Username,
+            password: response.data.Password,
+            role: response.data.Role
+        };
+
+        if (formData.email === demo.email && formData.password === demo.password) {
+            localStorage.setItem("user", JSON.stringify(formData));
+
+            toast.success("Login successful! Redirecting...", { autoClose: 2000 });
+
+            setTimeout(() => {
+                navigate("/customer");
+            }, 2000);
+        } else {
+            toast.error("Incorrect username or password");
+        }
+    } catch (error) {
+        toast.error("Incorrect uername or password");
     }
-  };
+  }
 
   const navigateRegister = () => {
     navigate("/register");
