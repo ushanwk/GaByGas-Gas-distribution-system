@@ -1,17 +1,18 @@
-
 import React, { useState } from "react";
 
-
-const SelectBox = () => {
-    const [selectedOption, setSelectedOption] = useState("Select an option");
+const SelectBox = ({ onSelect }) => {
+    const [selectedOption, setSelectedOption] = useState("");
 
     const handleChange = (event) => {
-        setSelectedOption(event.target.value);
+        const value = event.target.value;
+        setSelectedOption(value);
+        if (onSelect) {
+            onSelect(value); 
+        }
     };
 
     return (
         <div className="w-64">
-
             <div className="relative">
                 <select
                     id="options"
@@ -19,12 +20,10 @@ const SelectBox = () => {
                     onChange={handleChange}
                     className="block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm text-black"
                 >
-                    <option disabled>Select an option</option>
-                    <option value="Option 1">Small Gas</option>
-                    <option value="Option 2">Large Gas</option>
+                    <option value="" disabled>Select Gas Type</option>
+                    <option value="Small Gas">Small Gas</option>
+                    <option value="Large Gas">Large Gas</option>
                 </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                </div>
             </div>
         </div>
     );

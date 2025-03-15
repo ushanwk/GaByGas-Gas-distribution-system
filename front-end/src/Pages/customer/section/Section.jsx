@@ -1,8 +1,52 @@
 import bgImage from "../../../assets/pages/customer-page/customer-bg-img.png";
 import SelectBox from "../select-box/SelectBox.jsx";
+import axios from "axios";
+import OutletSelectBox from "../select-box_2/OutletSelectBox.jsx";
 import { CustomerTable } from "../Table/Table.jsx";
+import React, { useState } from "react";  
+
 
 const SectionOne = () => {
+
+  const [selectedGasType, setSelectedGasType] = useState(""); 
+  const [selectedOutlet, seUserIdtSelectedOutlet] = useState(""); 
+
+  const handleGasTypeSelect = (value) => {
+      setSelectedGasType(value);
+      console.log("Selected Gas Type:", value);
+  };
+
+  const handleOutletSelect = (value) => {
+    seUserIdtSelectedOutlet(value);
+    console.log("Selected Outlet:", value);
+  };
+
+  const handleRequestGas = async () => {
+    const username = localStorage.getItem("username");
+    const userId = localStorage.getItem("userId");
+    const qty = 1;
+
+
+    const requestData = {
+      GasType: selectedGasType,
+      Outlet_Id: selectedOutlet,
+      Username: username,
+      userId: userId,
+      Amount: qty,
+    };
+
+    console.log("Request Data:", requestData);
+
+    try {
+      const response = await axios.post("http://localhost:8089/api/gasRequestOders", requestData);
+      alert("Gas request submitted successfully!");
+      console.log("Response:", response.data);
+    } catch (error) {
+      console.error("Error submitting gas request:", error);
+      alert("Failed to submit gas request. Please try again.");
+    }
+  };
+
   return (
     <section
       id="section_1"
@@ -24,11 +68,13 @@ const SectionOne = () => {
         <div className="flex items-center justify-center gap-10 mt-12">
 
           <div className="flex items-center font-bold justify-center gap-4">
+            <h1>Select Gas Type</h1>
+            <SelectBox onSelect={handleGasTypeSelect} />
             <h1>Select outlet</h1>
-            <SelectBox />
+            <OutletSelectBox onSelect={handleOutletSelect} />
           </div>
 
-          <button className="bg-[#FFBF00] px-8 py-2 font-bold  rounded-md hover:bg-yellow-400 transition-colors h-10">
+          <button onClick={handleRequestGas} className="bg-[#FFBF00] px-8 py-2 font-bold  rounded-md hover:bg-yellow-400 transition-colors h-10">
             Request a gas
           </button>
 
